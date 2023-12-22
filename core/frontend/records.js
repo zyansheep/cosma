@@ -32,7 +32,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const recordId = getRecordIdFromHash();
     if (recordId) {
       openRecord(recordId);
-      zoomToNode(recordId);
+      // comment this out to prevent the jarring translation when clicking on nodes
+      // zoomToNode(recordId);
     } else {
       recordContainer.classList.remove('active');
       unlightNodes();
