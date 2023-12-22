@@ -107,6 +107,21 @@ left_panel:
       input_size:
         fr: taille du texte
         en: font size
+    
+    form_focus:
+      title:
+        fr: Mode de Focus
+        en: Focus mode
+      focus_mode:
+        directed:
+          fr: Tous
+          en: All
+        inbound:
+          fr: Entrant
+          en: Inbound
+        outbound:
+          fr: Sortant
+          en: Outbound
 
   footer:
     btn_data:

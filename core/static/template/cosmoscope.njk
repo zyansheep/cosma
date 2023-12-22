@@ -58,6 +58,37 @@
             <ul id="search-result-list"></ul>
         </section>
 
+        <section>
+            <ul class="menu-controls-list">
+                <li>
+                    <label>
+                        <input type="checkbox" checked onchange="linksDisplayToggle(this.checked)">
+                        {{ translation.left_panel.menu_controls.input_links_show[lang] }}
+                        <span class="badge">{{ nblinks }}</span>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" checked onchange="labelDisplayToggle(this.checked)">
+                        {{ translation.left_panel.menu_controls.input_labels_show[lang] }}
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" checked onchange="linkLabelDisplayToggle(this.checked)">
+                        {{ translation.left_panel.menu_controls.input_link_labels_show[lang] }}
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" {{ "checked" if graph.config.graph_highlight_on_hover }}
+                            onchange="graphProperties.graph_highlight_on_hover = this.checked">
+                        {{ translation.left_panel.menu_controls.input_highlight_hover_node[lang] }}
+                    </label>
+                </li>
+            </ul>
+        </section>
+
         <details class="menu-types" open="open">
             <summary class="menu-title">
                 {{ translation.left_panel.menu_types.title[lang] }}
@@ -180,35 +211,6 @@
                 {{ translation.left_panel.menu_controls.title[lang] }}
             </summary>
 
-            <ul class="menu-controls-list">
-                <li>
-                    <label>
-                        <input type="checkbox" checked onchange="linksDisplayToggle(this.checked)">
-                        {{ translation.left_panel.menu_controls.input_links_show[lang] }}
-                        <span class="badge">{{ nblinks }}</span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" checked onchange="labelDisplayToggle(this.checked)">
-                        {{ translation.left_panel.menu_controls.input_labels_show[lang] }}
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" checked onchange="linkLabelDisplayToggle(this.checked)">
-                        {{ translation.left_panel.menu_controls.input_link_labels_show[lang] }}
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" {{ "checked" if graph.config.graph_highlight_on_hover }}
-                            onchange="graphProperties.graph_highlight_on_hover = this.checked">
-                        {{ translation.left_panel.menu_controls.input_highlight_hover_node[lang] }}
-                    </label>
-                </li>
-            </ul>
-
             {% macro inputRange(name, graphParameter, fx, defaultValue, min, max, step) %}
             <form oninput="graphProperties.{{ graphParameter }} = range.value; {{ fx }}">
                 <label>{{ name }}</label>
@@ -239,11 +241,13 @@
 
             {% if focusIsActive %}
             <article class="menu-controls-container">
-                <p class="menu-controls-title">Mode de focus</p>
+                <p class="menu-controls-title">
+                    {{ translation.left_panel.menu_controls.form_focus.title[lang] }}
+                </p>
                 <select name="focus_mode" id="focus-mode-select">
-                    <option value="directed">Tous</option>
-                    <option value="inbound">Entrant</option>
-                    <option value="outbound">Sortant</option>
+                    <option value="directed">{{ translation.left_panel.menu_controls.form_focus.focus_mode.directed[lang] }}</option>
+                    <option value="inbound">{{ translation.left_panel.menu_controls.form_focus.focus_mode.inbound[lang] }}</option>
+                    <option value="outbound">{{ translation.left_panel.menu_controls.form_focus.focus_mode.outbound[lang] }}</option>
                 </select>
             </article>
             {% endif %}
