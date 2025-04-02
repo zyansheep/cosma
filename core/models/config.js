@@ -276,6 +276,7 @@ class Config {
     css_custom: undefined,
     devtools: false,
     lang: 'en',
+    start_page: '',
   });
 
   /**
